@@ -1,5 +1,5 @@
 #io_button_test
-from RPi.GPIO import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 #adjust for where your switch is connected
