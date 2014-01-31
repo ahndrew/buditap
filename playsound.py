@@ -12,6 +12,7 @@ class playsound:
 		pygame.mixer.init()
 		pygame.mixer.music.load(rs.getSongPath() + self.song)
 		pygame.mixer.music.play()
+		pygame.mixer.music.set_volume(1.0)
 
 		pygame.mixer.music.set_endevent(pygame.USEREVENT)
 
