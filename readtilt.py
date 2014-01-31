@@ -13,7 +13,7 @@ while True:
   try:
     if GPIO.input(24):
       print "HIGH"
-      if tilt != "high" and !ps.isSongPlaying()
+      if tilt != "high" and not(ps.isSongPlaying())
         ps.playSong()
         ps.isSongPlaying()
       tilt = "high"
