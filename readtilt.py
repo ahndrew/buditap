@@ -14,7 +14,7 @@ while True:
     if GPIO.input(24):
       print "HIGH"
       ps.playSong()
-      ps.isisSongPlaying()
+      ps.isSongPlaying()
     else:
       print "LO"
       ps.stopPlaying()
