@@ -13,10 +13,14 @@ while True:
   try:
     if GPIO.input(24):
       print "HIGH"
-      ps.playSong()
-      ps.isSongPlaying()
+      if tilt != "high" and !ps.isSongPlaying()
+        ps.playSong()
+        ps.isSongPlaying()
+      tilt = "high"
     else:
       print "LO"
+      tilt = "low"
+      # reset var
       ps.stopPlaying()
     sleep(.7)
   except KeyboardInterrupt:
