@@ -1,4 +1,3 @@
-import pygame.mixer
 from time import sleep
 import RPi.GPIO as GPIO
 from sys import exit
@@ -15,6 +14,6 @@ while True:
     else:
       print "LO"
  
-    sleep(1)
+    sleep(.7)
   except KeyboardInterrupt:
     exit()
