@@ -1,8 +1,7 @@
 from time import sleep
 import RPi.GPIO as GPIO
 from sys import exit
-import playsound
-
+from playsong import playsound
  
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(24, GPIO.IN)
