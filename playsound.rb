@@ -13,6 +13,5 @@ end
 puts "Load song"
 
 player.load('budligt_real_chinese.mp3')
-player.toggle
-player.start_thread
+#player.start_thread
 
