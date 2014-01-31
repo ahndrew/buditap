@@ -16,29 +16,15 @@ player.load('budligt_real_chinese.mp3')
 player.toggle
 player.start_thread
 
-=begin
-  
-// Pseudo NodeJS-style scripting -- Choosing a Theme
 
-  var fs = require(‘fs’);  // module that reads local files
+def get_theme(theme_name)
+  dir = "./audio/" + theme_name
+  files = Dir.foreach(dir).select do |x| 
+    File.file?("#{dir}/#{x}") 
+  end
+  return files
+end
 
-  /*  Returns an array of filenames
-  *   @param {string}  themeName
-  *   @return {array}  array of file names 
-  */
-  function getTheme(themeName) {
-    var themeFolder = ‘./audio/’ + _theme;
-    return fs.readdirSync(themeFolder);
-  }
+@current_theme = get_theme("beer")
 
-  // Returns a random integer between min and max
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
-  var currentTheme = getTheme('beer');
-  var random =  getRandomInt(0,currentTheme.length);
-
-  player.load(currentTheme[random]);
- 
-=end
+player.load(@current_theme.random)
