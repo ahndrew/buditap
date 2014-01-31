@@ -23,4 +23,5 @@ class playsound:
 		return pygame.mixer.music.get_busy()
 	
 	def stopPlaying(self):
+		pygame.mixer.init()
 		pygame.mixer.music.fadeout(50)
