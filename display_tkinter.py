@@ -1,6 +1,7 @@
 #display_tkinter
 from Tkinter import *
 import Tkinter
+from PIL import ImageTk
 import PIL.Image
 import PIL.ImageTk
 
