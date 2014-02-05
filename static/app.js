@@ -11,13 +11,13 @@ $(function() {
       $.ajax({
         'type': 'GET',
         'url': e.target.href,
-      success: function(data) {
-        $('#status').find('span').html(data);
-        $('#status').show();
-      },
-      error: function(data) {
-       
-      }
-    });
+        success: function(data) {
+          $('#status').text(data);
+          $('#status').show();
+        },
+        error: function(data) {
+          $('#status').text('an error occured, refresh the page');
+        }
+      });
     }
 });

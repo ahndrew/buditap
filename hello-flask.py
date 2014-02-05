@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
+<<<<<<< Updated upstream
 import os
+=======
+import subprocess
+>>>>>>> Stashed changes
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,13 +13,12 @@ def home():
 @app.route('/on')
 def turnon():
   os.system("sudo python /home/pi/buditap/buditap.py start")
-  return "on"
+  return "buditap is currently on"
 
 @app.route('/off')
 def turnoff():
   os.system("sudo python /home/pi/buditap/buditap.py stop")
-  # kill readtilt.py
-  return "off"
+  return "buditap is currently off"
 
 if __name__ == "__main__":
     app.debug = True
