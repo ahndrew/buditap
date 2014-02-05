@@ -22,6 +22,6 @@ while True:
       tilt = "low"
       # reset var
       ps.stopPlaying()
-    sleep(.4)
+    sleep(.7)
   except KeyboardInterrupt:
     exit()
