@@ -9,9 +9,17 @@ body {
 
 }
 
+.jumbotron {
+  opacity: 0.7;
+}
+
 .container {
   position: relative;
   z-index: 2;
   width:800px;
   margin:50px auto;
+}
+
+#status {
+  display: none;
 }

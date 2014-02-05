@@ -7,13 +7,13 @@ def home():
 
 @app.route('/on')
 def turnon():
-  return "tap on!"
-# load readtilt.py
+  # load readtilt.py
+  return "on"
 
 @app.route('/off')
 def turnoff():
-  return "tap off!"
-# kill readtilt.py
+  # kill readtilt.py
+  return "off"
 
 if __name__ == "__main__":
     app.debug = True
