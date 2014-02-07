@@ -17,6 +17,11 @@ def turnoff():
   os.system("sudo python /home/pi/buditap/buditap.py stop")
   return "buditap is currently off"
 
+@app.route('/theme/<theme_name>')
+def themepicker(theme_name):
+  # do change theme somehow.  Make it happen Andrew!
+  return theme_name
+
 if __name__ == "__main__":
     app.debug = True
     #app.run()
