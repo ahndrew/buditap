@@ -31,7 +31,7 @@ class MyDaemon(Daemon):
 				exit()
 
 if __name__ == "__main__":
-        daemon = MyDaemon('/var/run/trackerserver.pid')
+        daemon = MyDaemon('/var/run/buditap.pid')
         if len(sys.argv) == 2:
                 if 'start' == sys.argv[1]:
                         btlogger('INFO', 'Buditap Started')

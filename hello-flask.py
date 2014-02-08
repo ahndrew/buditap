@@ -1,9 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
-<<<<<<< Updated upstream
 import os
-=======
-import subprocess
->>>>>>> Stashed changes
 app = Flask(__name__)
 
 @app.route('/')
