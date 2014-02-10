@@ -28,4 +28,8 @@ body {
   margin-top: 15px;
 }
 
+#vol {
+  width: 50px;
+}
+
 hr { border-color: #000;}

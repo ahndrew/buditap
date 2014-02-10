@@ -21,7 +21,12 @@ def themepicker(theme_name):
   # do change theme somehow.  Make it happen Andrew!
   return theme_name
 
+@app.route('/volume/<int:level>')
+def volumen(level):
+  os.system("vol %d" % level)
+  return 'volume set to %d' % level
+
 if __name__ == "__main__":
     app.debug = True
-    #app.run()
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run()
+    #app.run(host='0.0.0.0', port=80, debug=True)
