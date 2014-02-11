@@ -4,7 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    if os.path.isfile("/var/run/buditap.pid"):
+      isOn = "on"
+    else:
+      isOn = "off"
+    return render_template('index.html', isRunning=isOn)
 
 @app.route('/on')
 def turnon():
