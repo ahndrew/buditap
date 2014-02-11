@@ -16,7 +16,11 @@
         <div class="container">
             <div class="jumbotron">
                 <h1>BUDITAP!!</h1>
-                <h3 id="status"></h3>
+                {% if isRunning == "on" %}
+                    <h3 id="status">buditap is currently on</h3>
+                {% else %}
+                    <h3 id="status">buditap is currently off</h3>
+                {% endif %}
                 <a href="/on" class="switch btn btn-lg btn-success" data-tap="on" id="turnon">on</a>
                 <a href="/off" class="switch btn btn-lg btn-danger" data-tap="off" id="turnoff">off</a>
                 <hr />
