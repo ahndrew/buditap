@@ -1,7 +1,7 @@
 $(function() {
     var BV = new $.BigVideo();
     BV.init();
-    BV.show('/static/video/80s-Commercial-Strohs-Beer.mp4',{ambient:true});
+    BV.show(['/static/video/80s-Commercial-Strohs-Beer.mp4','/static/video/tapper-arcade.mp4'],{ambient:true});
 
     $('.btn').on('click',makeCall);
 
