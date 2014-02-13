@@ -30,6 +30,11 @@ def volumen(level):
   os.system("vol %d" % level)
   return 'volume set to %d' % level
 
+@app.route('/speak/<words>')
+def spraken(words):
+  os.system('echo "%s" | festival --tts' % words)
+  return 'text-to-speech: %s' % words
+
 if __name__ == "__main__":
     app.debug = True
     #app.run()
