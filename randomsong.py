@@ -1,7 +1,7 @@
 import os
 import random
 
-FULL_MUSIC_PATH = "/home/pi/buditap/media/"
+FULL_MUSIC_PATH = "/home/pi/buditap/themes/gijoe/"
 
 class randomsong:
 	def __init__(self):
