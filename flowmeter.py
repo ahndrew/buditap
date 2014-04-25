@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import sys, time
 from twitter import *
 
-#t = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
+t = Twitter( auth=OAuth('2463739201-D4QDkK5cZB9NHuVdlmVQWU38g2Xw2b3w8CfFpkU', 'OZ09NQ7ZsQNozY20Q15EkYIafSBjk6NLR6xh5Qj5Tmi6m', 'jHp2yiFarSBPkKcbVwSkMRx6o', 'uwdZPzZbQSfb5LHOSCujjv3mUtegDYrRt7Agqs2Dbi4Cn39Mm8') )
 
 GPIO.setmode(GPIO.BCM) # use real GPIO numbering
 GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -19,6 +19,8 @@ hertz = 0
 flow = 0 
 litersPoured = 0
 pintsPoured = 0
+
+print 'start flowmeter'
 
 while True:
 	currentTime = int(time.time() * 1000)
@@ -54,9 +56,9 @@ while True:
 		pouring = False
 		if (pintsPoured > 0.1):
 			pourTime = int((currentTime - pourStart)/1000) - 3
-			#tweet = 'Someone just poured ' + str(round(pintsPoured,2)) + ' pints of root beer in ' + str(pourTime) + ' seconds'
-			#t.statuses.update(status=tweet)
-			print 'Someone just poured ' + str(round(pintsPoured,2)) + ' pints of root beer in ' + str(pourTime) + ' seconds'
+			tweet = 'A Thrillist Employee has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
+			t.statuses.update(status=tweet)
+			print 'A Thrillist Employee has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
 			litersPoured = 0
 			pintsPoured = 0
 
