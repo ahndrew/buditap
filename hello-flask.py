@@ -22,7 +22,9 @@ def turnoff():
 
 @app.route('/theme/<theme_name>')
 def themepicker(theme_name):
-  # do change theme somehow.  Make it happen Andrew!
+  with open ("current_theme.txt", "w") as myfile:
+    myfile.write("%s" % theme_name)
+  os.system("sudo python /home/pi/buditap/buditap.py restart")
   return theme_name
 
 @app.route('/volume/<int:level>')
@@ -37,5 +39,7 @@ def spraken(words):
 
 if __name__ == "__main__":
     app.debug = True
+    # switch to app.run() on your local Mac dev environment
     #app.run()
+    # use this line below when on the Pi
     app.run(host='0.0.0.0', port=80, debug=True)

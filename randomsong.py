@@ -1,7 +1,14 @@
 import os
 import random
 
-FULL_MUSIC_PATH = "/home/pi/buditap/themes/gijoe/"
+BASE_MUSIC_PATH = "/home/pi/buditap/themes/"
+
+with open ("current_theme.txt", "r") as myfile:
+    THEME=myfile.read().replace('\n', '')
+
+FULL_MUSIC_PATH = BASE_MUSIC_PATH + THEME + "/"
+
+print "current theme is: " + FULL_MUSIC_PATH
 
 class randomsong:
 	def __init__(self):
