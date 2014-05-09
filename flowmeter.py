@@ -56,9 +56,9 @@ while True:
 		pouring = False
 		if (pintsPoured > 0.1):
 			pourTime = int((currentTime - pourStart)/1000) - 3
-			tweet = 'A Thrillist Employee has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
+			tweet = 'Buditap has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
 			t.statuses.update(status=tweet)
-			print 'A Thrillist Employee has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
+			print 'Buditap has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
 			litersPoured = 0
 			pintsPoured = 0
 
