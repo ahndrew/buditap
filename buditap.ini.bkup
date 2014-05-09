@@ -1,0 +1,12 @@
+# rename this to buditap.ini and fill in values
+[mysql]
+HOST: hostname 
+USER: username 
+PASS: password 
+DBNAME: dbname
+
+[twitter]
+OAUTH_TOKEN: oauth token 
+OAUTH_SECRET: oauth secret 
+CONSUMER_KEY: consumer key 
+CONSUMER_SECRET: consumer secret 

@@ -1,8 +1,22 @@
 import RPi.GPIO as GPIO
 import sys, time
 from twitter import *
+import ConfigParser
+import MySQLdb
 
-t = Twitter( auth=OAuth('2463739201-D4QDkK5cZB9NHuVdlmVQWU38g2Xw2b3w8CfFpkU', 'OZ09NQ7ZsQNozY20Q15EkYIafSBjk6NLR6xh5Qj5Tmi6m', 'jHp2yiFarSBPkKcbVwSkMRx6o', 'uwdZPzZbQSfb5LHOSCujjv3mUtegDYrRt7Agqs2Dbi4Cn39Mm8') )
+Config = ConfigParser.ConfigParser()
+Config.read("buditap.ini")
+
+t = Twitter( auth=OAuth(Config.get('twitter', 'OAUTH_TOKEN'), Config.get('twitter', 'OAUTH_SECRET'), Config.get('twitter', 'CONSUMER_KEY'), Config.get('twitter', 'CONSUMER_SECRET')) )
+
+db = MySQLdb.connect(host=Config.get('mysql', 'HOST'), user=Config.get('mysql', 'USER'), passwd=Config.get('mysql', 'PASS'), db=Config.get('mysql','DBNAME'))
+
+cursor = db.cursor()
+
+cursor.execute("SHOW DATABASES")
+
+for row in cursor.fetchall() :
+    print row[0]
 
 GPIO.setmode(GPIO.BCM) # use real GPIO numbering
 GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_UP)
