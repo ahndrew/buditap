@@ -3,6 +3,7 @@ import sys, time
 from twitter import *
 import ConfigParser
 import MySQLdb
+import decimal
 
 Config = ConfigParser.ConfigParser()
 Config.read("buditap.ini")
@@ -12,11 +13,6 @@ t = Twitter( auth=OAuth(Config.get('twitter', 'OAUTH_TOKEN'), Config.get('twitte
 db = MySQLdb.connect(host=Config.get('mysql', 'HOST'), user=Config.get('mysql', 'USER'), passwd=Config.get('mysql', 'PASS'), db=Config.get('mysql','DBNAME'))
 
 cursor = db.cursor()
-
-cursor.execute("SHOW DATABASES")
-
-for row in cursor.fetchall() :
-    print row[0]
 
 GPIO.setmode(GPIO.BCM) # use real GPIO numbering
 GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -72,7 +68,14 @@ while True:
 			pourTime = int((currentTime - pourStart)/1000) - 3
 			tweet = 'Buditap has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
 			t.statuses.update(status=tweet)
-			print 'Buditap has poured ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
+			print 'INSERT INTO keg_pours (pour_amount) VALUES (' + str(round(decimal.Decimal(litersPoured), 4)) + ')'
+			try: 
+				cursor.execute('INSERT INTO keg_pours (pour_amount) VALUES (%s)', round(decimal.Decimal(litersPoured), 4))
+				db.commit()
+			except: 
+				db.rollback()
+
+			print 'Buditap has poured ' + str(round(litersPoured,4)) + ' liters or ' + str(round(pintsPoured,2)) + ' pints of beer in ' + str(pourTime) + ' seconds'
 			litersPoured = 0
 			pintsPoured = 0
 
